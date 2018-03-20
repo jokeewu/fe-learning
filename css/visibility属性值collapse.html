@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>visibility属性值collapse</title>
+  <style>
+    .table-normal {
+      width: 100%;
+      border: 1px solid #f0f0f0;
+      border-collapse: collapse;
+    }
+    .table-normal td {
+      border-left: 1px solid #f0f0f0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .table-normal td:first-child {
+      border-left: none;
+    }
+    .table-normal tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* 删除表格一行 */
+    .table-normal tr:first-child {
+      visibility: collapse;
+    }
+    /* 删除表格一列 */
+    .table-normal td:last-child {
+      visibility: collapse;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    <a href="https://developer.mozilla.org/zh-CN/docs/Web/CSS/visibility">参见</a>
+  </p>
+  <p>
+    用于表格行、列、列组和行组，隐藏表格的行或列，并且不占用任何空间（与将 display: none 用于表格的行/列上的效果相当）。但是其他行与列的宽和高不会重新计算，行与列的宽高计算依然会将被设为 collapse 的行和列考虑进去。这是用于快速从表格中删除一行或一列，而无需重新计算表格其他元素的宽和高。（用于其他元素时，collapse 效果与 hidden 相同。)
+  </p>
+  <table class="table-normal">
+    <tr>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>22</td>
+      <td>33</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>222</td>
+      <td>333</td>
+    </tr>
+  </table>
+</body>
+</html>

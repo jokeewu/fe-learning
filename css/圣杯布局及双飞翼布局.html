@@ -2,42 +2,114 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <title>Document</title>
+  <title>三栏布局和圣杯布局及双飞翼布局</title>
   
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; }
+    .lined { text-decoration: underline; }
+    .em { font-weight: bold; }
 
-    .container {
-      min-height: 200px;
-      margin-bottom: 20px;
-    }
+    .container { min-height: 150px; margin-bottom: 20px; }
+    .left, .right { width: 200px; height: 100px; }
+    .main { min-height: 120px; background-color: #f0f0f0; border: 1px dashed #ff0000; }
+    .left { background-color: blue; }
+    .right { background-color: red; }
     
-    /* 固定两边宽度 */
-    .left, 
-    .right {
-      width: 200px;
-      height: 400px;
-      background-color: #f0f0f0;
+    #c1 .left { float: left; }
+    #c1 .right { float: right; }
+    #c1 .main { overflow: hidden; }
+    
+    .ct > div { float: left; }
+    .ct .main { width: 100%; }
+    /* 使其3列并排 */
+    .ct .left { margin-left: -100%; }
+    .ct .right { margin-left: -200px; }
+    
+    /* 圣杯布局 */
+    #c2 { padding: 0 200px; }
+    #c2 .main,
+    #c2 .left,
+    #c2 .right {
+      position: relative;
     }
 
+    #c2 .main {  }
+    #c2 .left { left: -200px; }
+    #c2 .right { right: -200px; }
 
+    /* 双飞翼布局 */
+    #c3 {}
+    #c3 .main-entity { margin: 0 200px; }
+
+    /* flex实现 */
+    .ct-flex { display: flex; }
+    .ct-flex .left { order: -1; }
+    .ct-flex .main { flex: 1; }
+
+    /* 绝对定位实现 */
+    .ct-abs {
+      position: relative;
+      /* margin/padding */
+      margin: 0 200px;
+    }
+
+    .ct-abs .left, .ct-abs .right { position: absolute; top: 0; }
+    .ct-abs .left { left: -200px; }
+    .ct-abs .right { right: -200px; }
   </style>
 
 </head>
 <body>
+  <p>圣杯布局和双飞翼布局解决的问题是一样的，就是两边定宽，中间自适应的三栏布局，<span class="em">中间栏要在放在文档流前面以优先渲染</span>。</p>
+  <p>区别在于处理中间栏内容不被遮挡问题上方式不同。</p>
+  <p>注:红色虚线区域为.main元素绘制区域</p>
+
+  <h4>触发BFC，.main只能放在最后面</h4>
   <div class="container" id="c1">
-    <div class="main"></div>
-    <div class="left"></div>
-    <div class="right"></div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+    <!-- main没有在文档流前面 -->
+    <div class="main">Content</div>
+  </div>
+  
+  <h4>圣杯布局</h4>
+  <div class="container ct" id="c2">
+    <div class="main">Content</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+  </div>
+  
+  <h4>双飞翼布局</h4>
+  <div class="container ct" id="c3">
+    <div class="main">
+      <div class="main-entity">Content</div>
+    </div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
+  </div>
+  
+  <p>其他方式实现以上效果:</p>
+  <h4>通过Flex实现</h4>
+  <div class="container ct-flex" id="c4">
+    <div class="main">Content</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
   </div>
 
-  <div class="container" id="c2">
-    <div class="main"></div>
-    <div class="left"></div>
-    <div class="right"></div>
+  <h4>通过绝对定位实现</h4>
+  <div class="container ct-abs" id="c5">
+    <div class="main">Content</div>
+    <div class="left">Left</div>
+    <div class="right">Right</div>
   </div>
+
+  <h4>总结</h4>
+  <p>圣杯布局与双飞翼布局在是元素并列上采取相同的方式，只是在处理内容覆盖上采取了不同的方式。</p>
+  <p>圣杯布局，采用父元素padding和.left/.right相对定位的方式</p>
+  <p>双飞翼布局，在.main加入一个子元素，采用margin（流特性）达到目的</p>
+  
+  <p>
+    <a href="http://blog.csdn.net/wangchengiii/article/details/77926868">参考资料</a>
+  </p>
 </body>
 </html>
