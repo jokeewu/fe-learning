@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    #loginModal {
+      min-width: 320px;
+      border: 1px solid #f0f0f0;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <dialog id="loginModal">
+    <form action="">
+      <div>
+        <input type="text" name="loginName" placeholder="登录名">
+      </div>
+      <div>
+        <input type="password" name="password" placeholder="登录密码">
+      </div>
+      <div>
+        <button type="button" id="closeLoginModalBtn">关闭</button>
+      </div>
+    </form>
+  </dialog>
+
+  <a href="javascript:;" id="openLoginModalLink">登陆</a>
+  <script>
+    const loginModal = document.querySelector('#loginModal');
+    const openLoginModalLink = document.querySelector('#openLoginModalLink');
+    const closeLoginModalBtn = document.querySelector('#closeLoginModalBtn');
+
+    openLoginModalLink.addEventListener('click', function () {
+      loginModal.showModal();
+    }, false);
+
+    closeLoginModalBtn.addEventListener('click', function () {
+      loginModal.close();
+    }, false);
+  </script>
+</body>
+</html>

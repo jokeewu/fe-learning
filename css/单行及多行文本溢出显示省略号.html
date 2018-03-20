@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>单行及多行文本溢出显示省略号</title>
+  <style>
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+    }
+
+    .single-line {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    
+    /**
+     * font-size: 14px;
+     * line-height: 1.4;
+     * lines-to-show: 3;
+     */
+    .mutiple-line {
+      display: block; /* Fallback for non-webkit */
+      display: -webkit-box;
+      height: 58.8px; /* calc(14px * 1.4 * 3) Fallback for non-webkit */
+      margin: 0 auto;
+      font-size: 14px;
+      line-height: 1.4;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h4>单行溢出显示省略号</h4>
+    <p class="single-line">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
+
+    <h4>多行溢出显示省略号</h4>
+    <p class="mutiple-line">文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本文本</p>
+  </div>
+</body>
+</html>

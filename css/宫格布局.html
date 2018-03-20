@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>宫格布局，响应式</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+    }
+
+    .grid {
+      margin-top: 10px;
+    }
+
+    .grid-item {
+      width: 25%; /* 根据宫格列数决定  width=(100/宫格列数)% */
+      padding-top: 12.5%; /* width/2 */
+      padding-bottom: 12.5%; /* width/2 */
+
+      float: left;
+      position: relative;
+    }
+
+    .grid-item:nth-child(2n) {
+      background: #f0f0f0;
+    }
+
+    .grid-item-content {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      text-align: center;
+      /*如何让文字垂直居中*/
+      /*1.嵌套一个元素(.cvc)*/
+    }
+
+    .cvc {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="grid">
+    <div class="grid-item">
+      <div class="grid-item-content">
+        <div class="cvc">格子1</div>
+      </div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-content">格子2</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-content">格子3</div>
+    </div>
+    <div class="grid-item">
+      <div class="grid-item-content">格子4</div>
+    </div>
+  </div>
+</body>
+</html>

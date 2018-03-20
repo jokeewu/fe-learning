@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/template">参见</a>
+  <div id="cont"></div>
+  <template id="tpl">
+    <div>
+      <h1>${title}</h1>
+      <p>${content}</p>
+    </div>
+  </template>
+
+  <script>
+    const cont = document.querySelector('#cont')
+    const tpl = document.querySelector('#tpl')
+
+    // const pNode = document.createElement('p');
+    // const textNode = document.createTextNode('hello world');
+    // pNode.appendChild(textNode);
+    // cont.appendChild(pNode);
+    // cont.innerHTML = tpl.innerHTML;
+    tplHtmlStr = tpl.innerHTML
+    // tpl = tpl.content;
+    console.log(``+ tplHtmlStr + ``)
+  </script>
+</body>
+</html>

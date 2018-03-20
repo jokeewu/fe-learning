@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>inline与inline-block区别</title>
+  <style>
+    .mt10 { margin-top: 10px; }
+    .mr10 { margin-right: 10px; }
+    .mb10 { margin-bottom: 10px; }
+    .ml10 { margin-left: 10px; }
+    .pt10 { padding-top: 10px; }
+    .pr10 { padding-right: 10px; }
+    .pd10 { padding-bottom: 10px; }
+    .pl10 { padding-left: 10px; }
+    .wh100 { width: 100px; height: 100px; }
+    .il { display: inline; }
+    .ilb { display: inline-block; }
+    .bd1 { border: 1px solid #ff0000; }
+  </style>
+</head>
+<body>
+  <h4>与其他行内元素放在一行</h4>
+  <div class="mb10">
+    <input type="text" value="inline-bock">
+    <span>inline1</span>
+    <a href="">inline2</a>
+  </div>
+
+  <h4>inline 不能设置width/height inline-block可以</h4>
+  <div class="mb10">
+    <span class="ilb wh100 bd1">inline-block</span>
+    <span class="wh100 bd1">inline，.wh100无效</span>
+  </div>
+  
+  <h4>inline不能设置垂直方向margin及padding值，inline-block均可</h4>
+  <div class="mb10">
+    <div class="bd1 mb10">
+      <span class="bd1 mt10 mb10 ml10">inline</span>
+    </div>
+    <div class="bd1">
+      <span class="ilb bd1 mt10 mb10 ml10">inline block</span>
+    </div>
+  </div>
+</body>
+</html>

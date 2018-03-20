@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>BFC</title>
+  <style>
+    .side {
+      float: left;
+      min-width: 200px;
+      min-height: 100px;
+      background-color: #ff0000;
+      overflow: hidden;
+      resize: both;
+      margin-right: 10px;
+    }
+    .main {
+      min-height: 120px;
+      background-color: #fff000;
+    }
+
+    .main2 {
+      min-height: 120px;
+      background-color: #fff000;
+      overflow: hidden; /* 触发BFC */
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="side">侧边栏</div>
+    <div class="main">
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="side">侧边栏</div>
+    <div class="main2">
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+      <p>内容</p>
+    </div>
+  </div>
+</body>
+</html>
