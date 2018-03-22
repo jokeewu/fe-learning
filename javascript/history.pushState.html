@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>history.pushState</title>
+</head>
+<body>
+  <nav>
+    <a href="/home" class="">首页</a>
+    <a href="/profile" class="">个人资料</a>
+  </nav>
+
+  <script>
+    var nav = document.querySelector('nav');
+    nav.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = e.target;
+      var href = target.href;
+      var nodeName = target.nodeName;
+      if (nodeName === 'A') {
+        console.log(href);
+        return;
+      }
+    }, false);
+  </script>
+</body>
+</html>

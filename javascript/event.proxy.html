@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>事件代理</title>
+</head>
+<body>
+  <div class="eventHolder">
+    <div class="outer">
+      <div class="inner" id="inner">
+        <a href="#">点我</a>
+      </div>
+    </div>
+  </div>
+  
+  <script src="jquery.js"></script>
+  <script>
+    function handler (e) {
+      console.log(this, e)
+    }
+    handler.flag = 123456;
+    $('.eventHolder').on('click', '.outer', handler);
+  </script>
+</body>
+</html>

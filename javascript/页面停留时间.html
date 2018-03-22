@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>页面停留时间</title>
+</head>
+<body>
+  <script>
+    var startTimeStamp = Date.now();
+    
+    // document.addEventListener('unload', function (e) {
+    //   var endTimeStamp = Date.now();
+    //   localStorage.setItem('startTime', startTimeStamp);
+    //   localStorage.setItem('endTime', endTimeStamp);
+    // }, false);
+
+    window.onbeforeunload = function (e) {
+      var endTimeStamp = Date.now();
+      localStorage.setItem('stopTime', (endTimeStamp - startTimeStamp) / 1000);
+    }
+  </script>
+</body>
+</html>
