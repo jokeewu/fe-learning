@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function tag (strArr, ...values) {
+      console.log(strArr, values);
+    }
+
+    let name = 'jacky';
+    let old = 26;
+    
+    tag`
+    what's your name?\n 
+    my name is ${name}.
+    how old are you?
+    ${old} old.
+    `
+  </script>
+</body>
+</html>

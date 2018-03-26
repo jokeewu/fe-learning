@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    
+    let [a, b] = [1, 2];
+    let [a, b] = [1]; // b = undefined
+    let [a] = [1, 2];
+    let [a, b] = [b, a];
+    let [a, ...tail] = [1, 2, 3]; // tail = [2, 3]
+    let [x, , z] = [1, 2, 3];
+    // 先将值转换成对象在于以解构，undefined和null因无法转换为对象所以无法解构
+    let [x] = 1|false|NaN
+    let [x] = undefined|null // TypeError, [value] is not iterable
+
+
+  </script>
+</body>
+</html>
