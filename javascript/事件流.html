@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .outer {
+      width: 100px;
+      height: 100px;
+      background-color: #f0f0f0;
+      position: relative;
+    }
+
+    .inner {
+      width: 50px;
+      height: 50px;
+      margin-top: 25px;
+      margin-left: 25px;
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="outer">
+    <div class="inner"></div>
+  </div>
+
+  <script>
+    var elOuter = document.querySelector('.outer');
+    var elInner = document.querySelector('.inner');
+
+    elOuter.addEventListener('click', function (e) {
+      console.log('outer capture');
+      console.log(e.target, e.currentTarget)
+    }, true); // 事件捕获
+
+    elOuter.addEventListener('click', function (e) {
+      console.log('outer bubble');
+    }, false); // 事件冒泡
+
+    // elInner.addEventListener('click', function () {
+    //   console.log('inner');
+    // }, false);
+  </script>
+</body>
+</html>
