@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://cdn.bootcss.com/lodash.js/4.17.5/lodash.js"></script>
+
+  <script>
+    // =============================================
+    // lodash
+    // =============================================
+    var obj = {
+      a: {
+        b: {
+          c: {
+            d: 1
+          }
+        }
+      },
+      b: {
+        c: null,
+        d: [
+          {
+            aa: 11
+          }
+        ]
+      }
+    };
+
+    console.log(_.get(obj, 'a.b'));
+    console.log(_.get(obj, 'b.c.d', {}));
+    console.log(_.get(obj, 'b.d[0].aa', {}));
+
+    // =======================================
+    // 手动实现
+    // =======================================
+
+    /**
+     * 获取多层级对象某层级值
+     * @param  {object|array} obj
+     * @param  {array|string} path
+     * @param  {any} defaultValue 取不到值时的默认值
+     * @return {any}
+     */
+    function getObjValue(obj, path, defaultValue) {
+      // 取值对象无效
+      if (!obj || typeof obj !== 'object') {
+        return defaultValue || null;
+      }
+
+      // 取值路径无效
+      if (typeof path !== 'string' && !Array.isArray(path)) {
+        return defaultValue || null;
+      }
+
+      // 默认值统一
+      if (typeof defaultValue === 'undefined') {
+        defaultValue = null;
+      }
+
+      // 取值路径统一转换为数组
+      var pathKeys = path;
+      if (typeof pathKeys === 'string') {
+        pathKeys = pathKeys.replace(/\[/g, '.').replace(/\]/g, '').split('.');
+      }
+
+      var _mutiGet = function (obj, pathKeys) {
+        return pathKeys.reduce(function (obj, key) {
+          return obj && obj[key] ? obj[key] : null;
+        }, obj);
+      };
+
+      var result = _mutiGet(obj, pathKeys);
+      return result !== null ? result : defaultValue;
+    }
+
+    console.log(getObjValue(obj, '0'))
+  </script>
+</body>
+</html>
