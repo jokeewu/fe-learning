@@ -21,6 +21,7 @@
       },
       b: {
         c: null,
+        e: 2,
         d: [
           {
             aa: 11
@@ -76,7 +77,49 @@
       return result !== null ? result : defaultValue;
     }
 
-    console.log(getObjValue(obj, '0'))
+    console.log(getObjValue(obj, 'a.b.c.d'));
+
+    // =======================================
+    // 不采用reduce
+    // =======================================
+  
+    function getObjValue2(obj, path, defaultValue) {
+      // 取值对象无效
+      if (!obj || typeof obj !== 'object') {
+        return defaultValue || null;
+      }
+
+      // 取值路径无效
+      if (typeof path !== 'string' && !Array.isArray(path)) {
+        return defaultValue || null;
+      }
+
+      // 默认值统一
+      if (typeof defaultValue === 'undefined') {
+        defaultValue = null;
+      }
+
+      // 取值路径统一转换为数组
+      var pathKeys = path;
+      if (typeof pathKeys === 'string') {
+        pathKeys = pathKeys.replace(/\[/g, '.').replace(/\]/g, '').split('.');
+      }
+
+      var pLen = pathKeys.length;
+      var i = 0;
+
+      while(obj && i < pLen) {
+        // 2['e'] undefined
+        if (typeof obj === 'object') {
+          obj = obj[pathKeys[i++]];
+        } else {
+          obj = null;
+        }
+      }
+      return obj || defaultValue;
+    }
+
+    console.log('getObjValue2:', getObjValue2(obj, 'b.e.a'))
   </script>
 </body>
 </html>
