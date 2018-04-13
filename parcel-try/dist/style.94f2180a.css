@@ -1,0 +1,37 @@
+html,
+body {
+  margin: 0;
+  padding: 0; }
+
+.container {
+  height: 100vh;
+  display: flex; }
+
+.side {
+  width: 256px;
+  height: 100%;
+  background-color: #333;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.avatar {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin: 15px auto; }
+
+.nav {
+  color: #fff;
+  margin: 0; }
+  .nav dd {
+    margin: 0; }
+  .nav a {
+    display: block;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    text-align: center; }
+
+.content {
+  flex: 1; }

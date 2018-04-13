@@ -1,1 +1,0 @@
-{"version":3,"sources":["parcel-try/utils.js","app.js"],"names":["say","console","log"],"mappings":";;;;;ACAA;ADAO,IAAMA,oBAAM,SAANA,GAAM,GAAM;ACEzB,ADDEC,UAAQC,GAAR,CAAY,aAAZ;AACD,CAFM","file":"app.209be438.map","sourcesContent":["export const say = () => {\n  console.log('hello world')\n}","import { say } from './utils.js';\n\nsay();"]}

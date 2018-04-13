@@ -4,7 +4,7 @@
     "node-sass": "^4.8.3"
   },
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "start": "parcel src/index.html",
+    "build": "parcel build src/index.html"
   }
 }

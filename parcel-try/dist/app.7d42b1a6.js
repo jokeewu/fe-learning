@@ -77,7 +77,7 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({10:[function(require,module,exports) {
+})({6:[function(require,module,exports) {
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -86,13 +86,13 @@ Object.defineProperty(exports, "__esModule", {
 var say = exports.say = function say() {
   console.log('hello world');
 };
-},{}],5:[function(require,module,exports) {
+},{}],4:[function(require,module,exports) {
 'use strict';
 
 var _utils = require('./utils.js');
 
 (0, _utils.say)();
-},{"./utils.js":10}],18:[function(require,module,exports) {
+},{"./utils.js":6}],8:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -122,7 +122,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = '' || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + '63161' + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + '61591' + '/');
   ws.onmessage = function (event) {
     var data = JSON.parse(event.data);
 
@@ -261,5 +261,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[18,5])
-//# sourceMappingURL=/app.de216c9f.map
+},{}]},{},[8,4])
+//# sourceMappingURL=/app.7d42b1a6.map
