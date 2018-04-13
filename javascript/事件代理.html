@@ -16,10 +16,16 @@
   <script src="jquery.js"></script>
   <script>
     function handler (e) {
-      console.log(this, e)
+      // console.log(this, e)
     }
     handler.flag = 123456;
     $('.eventHolder').on('click', '.outer', handler);
+
+    document.querySelector('.eventHolder').addEventListener('click', function (e) {
+      const target = e.target;
+      const isInner = target.matches('.inner');
+      console.log(isInner)
+    });
   </script>
 </body>
 </html>
