@@ -77,22 +77,9 @@ parcelRequire = (function (modules, cache, entry) {
 
   // Override the current require with this new one
   return newRequire;
-})({11:[function(require,module,exports) {
-'use strict';
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var say = exports.say = function say() {
-  console.log('hello world');
-};
-},{}],9:[function(require,module,exports) {
-'use strict';
-
-var _utils = require('./utils.js');
-
-(0, _utils.say)();
-},{"./utils.js":11}],21:[function(require,module,exports) {
+})({22:[function(require,module,exports) {
+var API_ROOT = 'https://www.baidu.com';
+},{}],23:[function(require,module,exports) {
 
 var OVERLAY_ID = '__parcel__error__overlay__';
 
@@ -261,5 +248,5 @@ function hmrAccept(bundle, id) {
     return hmrAccept(global.parcelRequire, id);
   });
 }
-},{}]},{},[21,9])
-//# sourceMappingURL=/app.7d42b1a6.map
+},{}]},{},[23,22])
+//# sourceMappingURL=/config.59373d85.map

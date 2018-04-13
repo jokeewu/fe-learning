@@ -1,0 +1,1 @@
+{"version":3,"sources":["scripts/config.js"],"names":["API_ROOT"],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,IAAMA,WAAW,uBAAjB","file":"config.59373d85.map","sourcesContent":["const API_ROOT = 'https://www.baidu.com';"]}
