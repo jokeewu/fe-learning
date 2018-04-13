@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    function f1() {
+      var a = 100;
+      return function () {
+        console.log(a);
+      }
+    }
+
+    function f2 (f) {
+      var a = 200;
+      console.log(f());
+    }
+
+    var f11 = f1();
+    f2(f11);
+
+    var a = true;
+    // setTimeout(function(){
+    //     a = false;
+    // }, 100)
+    // while(a){
+    //     console.log('while执行了')
+    // }
+  </script>
+</body>
+</html>

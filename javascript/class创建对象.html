@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    class Animal {
+      constructor(type) {
+        this.type = type;
+      }
+
+      say() {
+        console.log(`${this.type} hello`);
+      }
+    }
+
+    class Person extends Animal {
+      constructor(name) {
+        super('person');
+        this.name = name;
+      }
+
+      static getClassName() {
+        // console.log(this === Person) // true
+        return this.name;
+      }
+    }
+
+    const p1 = new Person('jacky');
+    console.log(p1);
+    p1.say();
+    Person.getClassName();
+  </script>
+</body>
+</html>

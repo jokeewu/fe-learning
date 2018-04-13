@@ -1,0 +1,10 @@
+{
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "node-sass": "^4.8.3"
+  },
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  }
+}
