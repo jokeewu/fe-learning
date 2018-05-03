@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <form action="">
+    <input type="number" value="10" id="num">
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    var num = document.getElementById('num').value;
+    var form = document.querySelector('form');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+    });
+
+    console.log(num, typeof num)
+  </script>
+</body>
+</html>
