@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>检测元素与视口或父级元素相交情况</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    .placeholder {
+      height: 2000px;
+      background-color: #f0f;
+    }
+
+    .inter-section {
+      height: 300px;
+    }
+
+    .viewer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      font-size: 48px;
+    }
+  </style>
+</head>
+<body>
+  <div class="placeholder"></div>
+  <div class="inter-section" id="target"></div>
+  <div class="viewer" id="viewer"></div>
+
+  <script>
+    // 参见: https://developer.mozilla.org/zh-CN/docs/Web/API/Intersection_Observer_API
+
+    const elTarget = document.getElementById('target');
+    const elViewer = document.getElementById('viewer');
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+      console.log(entries.length)
+      entries.forEach(entry => {
+        window.requestIdleCallback(() => {
+          elViewer.innerHTML = (entry.intersectionRatio * 100).toFixed(2) + '%';
+        });
+      });
+    }, {
+      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
+      // rootMargin: '100%'
+    });
+
+    observer.observe(elTarget);
+  </script>
+</body>
+</html>
