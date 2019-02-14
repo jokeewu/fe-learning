@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>事件监听</title>
+</head>
+<body>
+  <p>请打开控制台查看事件对象</p>
+
+  <p>key:<span id="key"></span></p>
+  <p>oldValue:<span id="oldValue"></span></p>
+  <p>newValue:<span id="newValue"></span></p>
+  <p>url:<span id="url"></span></p>
+  
+  <!--
+    参见
+    https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API/Using_the_Web_Storage_API
+  -->
+  <div id="result"></div>
+  <script>
+    const elKey = document.getElementById('key');
+    const elOldValue = document.getElementById('oldValue');
+    const elNewValue = document.getElementById('newValue');
+    const elUrl = document.getElementById('url');
+
+    window.addEventListener('storage', (e) => {
+      const { key, oldValue, newValue, url } = e;
+      elKey.innerText = key;
+      elOldValue.innerText = oldValue;
+      elNewValue.innerText = newValue;
+      elUrl.innerText = url;
+
+      console.log(e);
+    });
+  </script>
+</body>
+</html>
