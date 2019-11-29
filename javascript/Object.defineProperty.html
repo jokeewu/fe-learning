@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+    // 参见：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+    // 语法：
+    // Object.defineProperty(obj, prop, descriptor)
+    // descriptor: {
+    //    configurable: false,
+    //    enumerable: false,
+    //    value: undefined,
+    //    writable: false,
+    //    get: undfined,
+    //    set: undfined,
+    // }
+    // 属性描述符形式：数据描述符、存取描述符
+
+    // 规则1：
+    // 默认情况下Object.defineProperty定义的属性是不能修改的
+    let obj1 = {}
+    Object.defineProperty(obj1, 'name', {
+      value: 'Hokee',
+    })
+    obj1.name = 'Jacky'
+    console.log(obj1) // Hokee
+
+    // 规则2：
+    // 一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常
+    // value/writable与get/set互斥
+    let obj2 = {}
+    let name = 'Jacky'
+    try {
+      Object.defineProperty(obj2, 'name', {
+        // value: 'Jacky',
+        writable: true,
+        get() {
+          return name
+        },
+        set(newValue) {
+          name = newValue
+        }
+      })
+    } catch(e) {
+      console.warn(e)
+    }
+
+  </script>
+</body>
+</html>
