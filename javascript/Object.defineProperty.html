@@ -18,6 +18,8 @@
     //    set: undfined,
     // }
     // 属性描述符形式：数据描述符、存取描述符
+    // 数据描述符：value/writable
+    // 存取描述符：get/set
 
     // 规则1：
     // 默认情况下Object.defineProperty定义的属性是不能修改的
@@ -48,6 +50,38 @@
       console.warn(e)
     }
 
+    //
+    // configurable: 表示对象属性是否可被删除，同时除value/writable外，其他属性是否可被修改
+    // 
+
+    let obj3 = {
+      // a: 2,
+    }
+    // Object.defineProperty(obj3, 'a', {
+    //   set(newValue) {
+    //     console.log('set')
+    //     this._value = newValue
+    //   },
+    //   get() {
+    //     console.log('get')
+    //     return this._value
+    //   }
+    // })
+    
+    Object.defineProperty(obj3.__proto__, 'a', {
+      set(newValue) {
+        console.log('proto set')
+        this._value = newValue
+      },
+      get() {
+        console.log('proto get', this === obj3)
+        return this._value
+      }
+    })
+    // 自有对象属性定义存取器方法则调用本身对象属性存取器方法
+    // 否则延原型链查找原型上相同属性名的存取器方法
+    obj3.a = 3
+    console.log(obj3.a)
   </script>
 </body>
 </html>
