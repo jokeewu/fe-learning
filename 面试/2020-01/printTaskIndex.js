@@ -5,9 +5,11 @@
 
 function printTaskIndex(taskStr) {
   const tasks = taskStr.split(',').map(task => parseInt(task));
-  const sortedTasks = tasks.sort((t1, t2) => t2 - t1);
+  const sortedTasks = [...tasks].sort((t1, t2) => t2 - t1);
   // 可能存在优先级相同
   
+  // 不存在优先级相同
+  return tasks.map(task => sortedTasks.findIndex(stask => stask === task)).join(',');
 }
 
 console.log(printTaskIndex('1,3,2')) // 2,0,1
