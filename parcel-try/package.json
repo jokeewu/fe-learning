@@ -2,7 +2,7 @@
   "devDependencies": {
     "babel-core": "^6.26.0",
     "cross-env": "^5.1.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.2",
     "gulp-replace": "^0.6.1",
     "gulp-zip": "^4.1.0",
     "node-sass": "^4.8.3"
